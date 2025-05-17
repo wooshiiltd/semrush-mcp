@@ -57,9 +57,19 @@ export const logger: Logger = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ENV_FILE_PATH: string = resolve(__dirname, '..', '.env');
+let secretLoaded: boolean = false;
 
 // Load environment variables
 const loadEnv = (): void => {
+  if (secretLoaded) return;
+
+  // Check external environment first
+  const externalKey: string | undefined = process.env.SEMRUSH_API_KEY;
+  if (externalKey) {
+    logger.info('Using SEMRUSH_API_KEY from external environment variables.');
+    secretLoaded = true;
+    return;
+  }
   try {
     const envContent: string = readFileSync(ENV_FILE_PATH, 'utf8');
     const envVars: Record<string, string> = envContent.split('\n').reduce((acc, line) => {
