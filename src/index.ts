@@ -1,4 +1,6 @@
-import { config, logger, logConfigStatus } from './config.js';
+#!/usr/bin/env node
+
+import { logger, logConfigStatus } from './config.js';
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
