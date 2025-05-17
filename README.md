@@ -134,7 +134,8 @@ Configure your MCP servers JSON file for your designated consuming environment b
         "github:mrkooblu/semrush-mcp"
       ],
       "env": {
-        "SEMRUSH_API_KEY": "your-api-key"
+        "SEMRUSH_API_KEY": "your-api-key",
+        "LOG_LEVEL": "info"
       }
     }
   }
