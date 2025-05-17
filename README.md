@@ -118,9 +118,35 @@ To add this MCP server to Cursor or Claude:
      - Other optional variables as needed
 4. Click "Save"
 
-### Claude Desktop
+## Usage Using NPX
 
-Configure the MCP server in the Claude Desktop settings following the documentation.
+### Using Environment Variables in Cursor/Claude/Windsurf Configuration
+
+Configure your MCP servers JSON file for your designated consuming environment by adding this MCP using the following format:
+
+```json
+{
+  "mcpServers": {
+    "semrush-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "github:mrkooblu/semrush-mcp"
+      ],
+      "env": {
+        "SEMRUSH_API_KEY": "your-api-key",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+Running it from your terminal:
+
+```bash
+SEMRUSH_API_KEY=your-api-key npx -y github:mrkooblu/semrush-mcp
+```
 
 ## Development
 
